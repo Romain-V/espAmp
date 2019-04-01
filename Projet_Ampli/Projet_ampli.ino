@@ -17,7 +17,6 @@ String message;
 
 BLYNK_WRITE(V1)
 {
-  //terminal.print("You said:");
   Serial.print(param.asStr());
   Serial.println();
   //Used to send commands directly from Blynk terminal
@@ -94,7 +93,7 @@ void setAudioMode(int audimod){
     Serial.print("DTS SURROUND");
     break;
     case 5:
-    Serial.print("MATRIX"); //Could be any other, set to MATRIX cause why not
+    Serial.print("MATRIX"); //Could be any other, set to MATRIX cause first one I could think of
     break;
   }
   Serial.println();
@@ -181,9 +180,10 @@ void messageParse(String mesg){
         Blynk.virtualWrite(V3, 4);
       }
     }
-    else
-    terminal.print(mesg);
-    terminal.println();
+    else{
+      terminal.print(mesg);
+      terminal.println();
+    }
 }
 
 void loop()
